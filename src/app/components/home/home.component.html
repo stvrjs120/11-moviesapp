@@ -1,0 +1,56 @@
+<h2>
+
+</h2>
+<div class="row no-gutters">
+    <div class="col-md-6">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <img [src]="nowPlaying['results'][0].backdrop_path | movimage:500" class="img-fluid" alt="">
+                <div class="movie-caption">
+                    <h6>{{nowPlaying['results'][0].title}} <small>({{nowPlaying['results'][0].release_date}})</small></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img [src]="nowPlaying['results'][1].backdrop_path | movimage:300" class="img-fluid" alt="">
+                <div class="movie-caption">
+                    <h6>{{nowPlaying['results'][1].title}} <small>({{nowPlaying['results'][1].release_date}})</small></h6>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img [src]="nowPlaying['results'][5].backdrop_path | movimage:300" class="img-fluid" alt="">
+                <div class="movie-caption">
+                    <h6>{{nowPlaying['results'][5].title}} <small>({{nowPlaying['results'][5].release_date}})</small></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img [src]="nowPlaying['results'][3].backdrop_path | movimage:300" class="img-fluid" alt="">
+                <div class="movie-caption">
+                    <h6>{{nowPlaying['results'][3].title}} <small>({{nowPlaying['results'][3].release_date}})</small></h6>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img [src]="nowPlaying['results'][4].backdrop_path | movimage:300" class="img-fluid" alt="">
+                <div class="movie-caption">
+                    <h6>{{nowPlaying['results'][4].title}} <small>({{nowPlaying['results'][4].release_date}})</small></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <img [src]="nowPlaying['results'][2].backdrop_path | movimage:500" class="img-fluid" alt="">
+                <div class="movie-caption">
+                    <h6>{{nowPlaying['results'][2].title}} <small>({{nowPlaying['results'][2].release_date}})</small></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="text-light">Populars</h3>
+<hr>
