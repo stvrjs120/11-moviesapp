@@ -1,3 +1,25 @@
-<p>
-  search works!
-</p>
+<div class="container m-5">
+    <div class="row">
+        <div class="col">
+            <input #searchText type="text" (keyup)="searchMovie(searchText.value)" class="form-control" placeholder="Search movie...">
+        </div>
+    </div>
+
+    <div class="container m-3">
+        <div class="card-columns">
+            <div *ngFor="let result of searchResults['results']" class="card puntero">
+                <img class="card-img-top" [src]="result.poster_path | movimage:300" width="284px" height="160px" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{result.title}}
+                    </h5>
+                    <p class="card-text">
+                        {{result.overview | slice:0:300}}...
+                    </p>
+                    <button type="button" name="btnSeeMore" id="btnSeeMore" class="btn btn-outline-primary btn-block">See more</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

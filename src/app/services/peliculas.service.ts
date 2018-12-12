@@ -26,9 +26,9 @@ export class PeliculasService {
       .pipe(map(resp => resp.json()));
   }
 
-  searchMovie( texto: string ) {
+  searchMovie( text: string ) {
     const url =
-      `${ this.urlMoviedb }/search/movie?query=${ texto }&sort_by=popularity.desc&api_key=${ this.apikey }&callback=JSONP_CALLBACK`;
+      `${ this.urlMoviedb }/search/movie?query=${ text }&sort_by=popularity.desc&api_key=${ this.apikey }&callback=JSONP_CALLBACK`;
 
     return this.jsonp.get( url )
       .pipe(map( res => res.json()));

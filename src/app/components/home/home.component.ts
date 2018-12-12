@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(public _ps: PeliculasService) {
     this._ps.getNowPlaying().subscribe( data => {
       this.nowPlaying = data;
-      console.log(data);
+      // console.log(data);
     });
 
     this._ps.getPopulars().subscribe( data => {
