@@ -19,6 +19,8 @@ import { MovimagePipe } from './pipes/movimage.pipe';
 
 // Router
 import { ROUTES } from './app.routes';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { MovdisplayComponent } from './components/movdisplay/movdisplay.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { ROUTES } from './app.routes';
     HomeComponent,
     SearchComponent,
     MovimagePipe,
-    MovieComponent
+    MovieComponent,
+    LoadingComponent,
+    MovdisplayComponent
   ],
   imports: [
     BrowserModule,

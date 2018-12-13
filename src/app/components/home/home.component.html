@@ -4,123 +4,33 @@
         <p>My movie application</p>
     </div>
 </div>
-<div class="container">
+
+<div class="container animated fadeIn">
+
     <div class="container m-4">
         <h2>Now playing</h2>
         <hr>
-        <div class="row">
-            <div class="col-sm-12 col-md-10 offset-md-1">
-                <div class="row no-gutters">
-                    <div class="col-md-6">
-                        <div class="row no-gutters">
-                            <div class="col-md-12">
-                                <img [src]="nowPlaying['results'][0].backdrop_path | movimage:500" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{nowPlaying['results'][0].title}} <small>({{nowPlaying['results'][0].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <img [src]="nowPlaying['results'][1].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{nowPlaying['results'][1].title}} <small>({{nowPlaying['results'][1].release_date}})</small></h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img [src]="nowPlaying['results'][5].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{nowPlaying['results'][5].title}} <small>({{nowPlaying['results'][5].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <img [src]="nowPlaying['results'][3].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{nowPlaying['results'][3].title}} <small>({{nowPlaying['results'][3].release_date}})</small></h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img [src]="nowPlaying['results'][4].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{nowPlaying['results'][4].title}} <small>({{nowPlaying['results'][4].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-md-12">
-                                <img [src]="nowPlaying['results'][2].backdrop_path | movimage:500" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{nowPlaying['results'][2].title}} <small>({{nowPlaying['results'][2].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <app-loading *ngIf="loadingNowPlaying"></app-loading>
+        <div *ngIf="errorNowPlaying" class="alert alert-danger animated fadeIn">
+            <h3>
+                Error
+            </h3>
+            <p>{{errorMsgNowPlaying}}</p>
         </div>
+        <app-movdisplay [movies]="nowPlaying" *ngIf="!loadingNowPlaying"></app-movdisplay>
     </div>
 
     <div class="container m-4">
         <h2>Populars</h2>
         <hr>
-        <div class="row">
-            <div class="col-sm-12 col-md-10 offset-md-1">
-                <div class="row no-gutters">
-                    <div class="col-md-6">
-                        <div class="row no-gutters">
-                            <div class="col-md-12">
-                                <img [src]="populars['results'][0].backdrop_path | movimage:500" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{populars['results'][0].title}} <small>({{populars['results'][0].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <img [src]="populars['results'][1].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{populars['results'][1].title}} <small>({{populars['results'][1].release_date}})</small></h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img [src]="populars['results'][5].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{populars['results'][5].title}} <small>({{populars['results'][5].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <img [src]="populars['results'][3].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{populars['results'][3].title}} <small>({{populars['results'][3].release_date}})</small></h6>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <img [src]="populars['results'][4].backdrop_path | movimage:300" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{populars['results'][4].title}} <small>({{populars['results'][4].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row no-gutters">
-                            <div class="col-md-12">
-                                <img [src]="populars['results'][2].backdrop_path | movimage:500" class="img-fluid" alt="">
-                                <div class="movie-caption">
-                                    <h6>{{populars['results'][2].title}} <small>({{populars['results'][2].release_date}})</small></h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <app-loading *ngIf="loadingPopulars"></app-loading>
+        <div *ngIf="errorPopulars" class="alert alert-danger animated fadeIn">
+            <h3>
+                Error
+            </h3>
+            <p>{{errorMsgPopulars}}</p>
         </div>
+        <app-movdisplay [movies]="populars" *ngIf="!loadingPopulars"></app-movdisplay>
     </div>
 
 </div>

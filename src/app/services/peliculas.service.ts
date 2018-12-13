@@ -33,4 +33,12 @@ export class PeliculasService {
     return this.jsonp.get( url )
       .pipe(map( res => res.json()));
   }
+
+  getDetails( movieId: number ) {
+    const url =
+      `${ this.urlMoviedb }/movie/${ movieId }?api_key=${ this.apikey }&callback=JSONP_CALLBACK`;
+
+    return this.jsonp.get( url )
+      .pipe(map( res => res.json()));
+  }
 }

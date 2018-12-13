@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <div class="row no-gutters">
+                    <div class="col-md-12" (click)="getDetails(movies['results'][0].id)" style="cursor: pointer">
+                        <img [src]="movies['results'][0].backdrop_path | movimage:500" class="img-fluid" alt="">
+                        <div class="movie-caption">
+                            <h6>{{movies['results'][0].title}} <small>({{movies['results'][0].release_date}})</small></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-md-6" (click)="getDetails(movies['results'][1].id)" style="cursor: pointer">
+                        <img [src]="movies['results'][1].backdrop_path | movimage:300" class="img-fluid" alt="">
+                        <div class="movie-caption">
+                            <h6>{{movies['results'][1].title}} <small>({{movies['results'][1].release_date}})</small></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6" (click)="getDetails(movies['results'][5].id)" style="cursor: pointer">
+                        <img [src]="movies['results'][5].backdrop_path | movimage:300" class="img-fluid" alt="">
+                        <div class="movie-caption">
+                            <h6>{{movies['results'][5].title}} <small>({{movies['results'][5].release_date}})</small></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row no-gutters">
+                    <div class="col-md-6" (click)="getDetails(movies['results'][3].id)" style="cursor: pointer">
+                        <img [src]="movies['results'][3].backdrop_path | movimage:300" class="img-fluid" alt="">
+                        <div class="movie-caption">
+                            <h6>{{movies['results'][3].title}} <small>({{movies['results'][3].release_date}})</small></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-6" (click)="getDetails(movies['results'][4].id)" style="cursor: pointer">
+                        <img [src]="movies['results'][4].backdrop_path | movimage:300" class="img-fluid" alt="">
+                        <div class="movie-caption">
+                            <h6>{{movies['results'][4].title}} <small>({{movies['results'][4].release_date}})</small></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-md-12" (click)="getDetails(movies['results'][2].id)" style="cursor: pointer">
+                        <img [src]="movies['results'][2].backdrop_path | movimage:500" class="img-fluid" alt="">
+                        <div class="movie-caption">
+                            <h6>{{movies['results'][2].title}} <small>({{movies['results'][2].release_date}})</small></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
