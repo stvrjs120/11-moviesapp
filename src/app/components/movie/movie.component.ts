@@ -31,11 +31,6 @@ export class MovieComponent implements OnInit {
 
   goBack() {
     const pageBefore = localStorage.getItem('pageBefore');
-
-    if (pageBefore === 'search') {
-      this._router.navigate(['/search']);
-    } else {
-      this._router.navigate(['/home']);
-    }
+    this._router.navigate([pageBefore]);
   }
 }

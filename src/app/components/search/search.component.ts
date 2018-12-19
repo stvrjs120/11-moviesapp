@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
               private _router: Router) {
     const pageBefore = localStorage.getItem('pageBefore');
 
-    if (pageBefore === 'search') {
+    if (pageBefore === '/search') {
       this._activatedRouter.params.subscribe(parameters => {
         console.log(parameters);
         if (parameters['text']) {
@@ -46,7 +46,7 @@ export class SearchComponent implements OnInit {
   }
 
   getDetails(id: number) {
-    localStorage.setItem('pageBefore', 'search');
+    localStorage.setItem('pageBefore', '/search');
 
     this._router.navigate(['/movie', id]);
   }

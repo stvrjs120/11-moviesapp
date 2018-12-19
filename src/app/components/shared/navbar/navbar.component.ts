@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
       return;
     }
 
-    localStorage.setItem('pageBefore', 'search');
+    localStorage.setItem('pageBefore', '/search');
     localStorage.setItem('searchText', text);
     this._router.navigate(['/search', text]);
   }

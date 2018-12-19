@@ -5,16 +5,16 @@
     <div class="row animated fadeIn" *ngIf="!loading">
 
         <div class="col-md-6 text-right">
-            <img [src]="movie.poster_path | movimage:300" alt="">
+            <img [src]="movie.poster_path | movimage:300" alt="movie.original_title" class="img-thumbnail img-fluid">
         </div>
 
         <div class="col-md-6">
             <h2>{{movie.title}}</h2>
             <hr>
-            <p>{{movie.overview}}</p>
+            <p class="text-justify">{{movie.overview}}</p>
             <h3>Tag line</h3>
             <p>{{movie.tagline}}</p>
-            <p>Popularity: <span class="badge badge-primary">{{movie.popularity}}</span></p>
+            <p>Popularity: <span class="badge badge-primary">{{movie.popularity | number:'.2-2'}}</span></p>
             <p>Vote average: <span class="badge badge-primary">{{movie.vote_average}}</span></p>
             <a name="btnBack" id="btnBack" class="btn btn-outline-danger" (click)="goBack()" role="button">Back</a>
         </div>

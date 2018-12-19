@@ -16,7 +16,7 @@ export class MovdisplayComponent implements OnInit {
   }
 
   getDetails(id: number) {
-    localStorage.setItem('pageBefore', 'home');
+    localStorage.setItem('pageBefore', '/home');
 
     this._router.navigate(['/movie', id]);
   }
