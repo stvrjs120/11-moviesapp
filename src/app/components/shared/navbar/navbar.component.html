@@ -14,7 +14,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search movie" (keyup.enter)="searchMovie(searchText.value)" #searchText>
+            <input class="form-control mr-sm-2" type="text" (enter)="searchMovie(searchText.value)" placeholder="Search" aria-label="Search movie" #searchText>
+            <button class="btn btn-outline-success my-2 my-sm-0" (click)="searchMovie(searchText.value)" type="button">Search</button>
         </form>
     </div>
 </nav>

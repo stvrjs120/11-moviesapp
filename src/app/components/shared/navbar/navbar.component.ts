@@ -14,9 +14,12 @@ export class NavbarComponent implements OnInit {
   }
 
   searchMovie(text: string) {
+    if (!text) {
+      return;
+    }
+
     localStorage.setItem('pageBefore', 'search');
     localStorage.setItem('searchText', text);
-
-    this._router.navigate(['/search']);
+    this._router.navigate(['/search', text]);
   }
 }

@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   searchResults: any[] = [];
-  text: string;
+  searchText: string;
   noResults: boolean;
 
   constructor(public _ps: PeliculasService,
@@ -19,18 +19,24 @@ export class SearchComponent implements OnInit {
     const pageBefore = localStorage.getItem('pageBefore');
 
     if (pageBefore === 'search') {
-      this.text = localStorage.getItem('searchText');
-      this.searchMovie(this.text);
+      this._activatedRouter.params.subscribe(parameters => {
+        console.log(parameters);
+        if (parameters['text']) {
+          this.searchText = localStorage.getItem('searchText');
+
+          this.searchMovie();
+        }
+      });
     }
   }
 
   ngOnInit() {
   }
 
-  searchMovie(text: string) {
-    if (text) {
-      localStorage.setItem('searchText', text);
-      this._ps.searchMovie(text).subscribe( data => {
+  searchMovie() {
+    if (this.searchText) {
+      localStorage.setItem('searchText', this.searchText);
+      this._ps.searchMovie(this.searchText).subscribe( data => {
         this.searchResults = data;
         this.noResults = (this.searchResults['results'].length === 0);
       });

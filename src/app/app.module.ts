@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 // Servicios
 import { PeliculasService } from './services/peliculas.service';
@@ -37,7 +38,8 @@ import { MovdisplayComponent } from './components/movdisplay/movdisplay.componen
   imports: [
     BrowserModule,
     JsonpModule,
-    RouterModule.forRoot(ROUTES, {useHash: true})
+    RouterModule.forRoot(ROUTES, {useHash: true}),
+    FormsModule
   ],
   providers: [
     PeliculasService

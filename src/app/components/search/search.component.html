@@ -1,14 +1,14 @@
 <div class="container m-5">
     <div class="row m-3">
         <div class="col">
-            <input #searchText type="text" (keyup)="searchMovie(searchText.value)" class="form-control" placeholder="Search movie...">
+            <input [(ngModel)]="searchText" type="text" (keyup)="searchMovie()" class="form-control" placeholder="Search movie...">
         </div>
     </div>
 
     <div class="row animated fadeIn fast" *ngIf="noResults">
         <div class="col-md-12">
             <div class="alert alert-info" role="alert">
-                There are not results for with: {{searchText.value}}
+                There are not results for with: {{searchText}}
             </div>
         </div>
     </div>
